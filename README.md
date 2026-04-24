@@ -57,13 +57,16 @@ CasoEstudio2_Mineria2/
 | Algolia | Motor de búsqueda | API con catálogo completo accesible con credenciales públicas |
 | Cloudflare | CDN + seguridad | Bloquea scrapers sin `User-Agent` o con demasiadas peticiones |
 
-### Tres técnicas aplicadas
+### Técnica aplicada — T2: `requests` + API interna + `re`
 
-| Técnica | Herramientas | Resultado |
-|---------|-------------|-----------|
-| T1 — `urllib` + BeautifulSoup | CSS selectors | Extrae título, meta y categorías de navegación. El catálogo no está disponible sin JS. |
-| T2 — `requests` + API + `re` | JSON, regex | Descarga los **1,137 productos** del catálogo completo vía Algolia. `re.findall()` extrae gramaje y tipo de presentación. **Técnica principal.** |
-| T3 — Selenium + XPath | `geckodriver` | Controla un navegador real para acceder al catálogo renderizado. Alternativa universal cuando no existe API. |
+Zoomies.cr expone credenciales de Algolia en `/api/config/public`, lo que permite descargar el catálogo completo sin necesidad de renderizar JavaScript. Se obtuvieron **1,137 productos** con precio, marca, categoría y ventas del mes. `re.findall()` y `re.sub()` se aplican sobre los nombres de producto para extraer gramaje y tipo de presentación.
+
+### Las otras dos técnicas se documentan como alternativas
+
+| Técnica | Herramientas | Cuándo se usa |
+|---------|-------------|---------------|
+| T1 — `urllib` + BeautifulSoup | CSS selectors | Sitios estáticos. En Zoomies.cr el HTML llega vacío (SPA React) — sin catálogo disponible. Ver `ejemplos/WebMining.ipynb` |
+| T3 — Selenium + XPath | `geckodriver` | Cualquier sitio con JS cuando no existe API. Controla un navegador real. Ver `ejemplos/WebMining2.ipynb` |
 
 ---
 
