@@ -1,0 +1,31 @@
+# ─── Core científico ──────────────────────────────────────────────────────────
+pandas==2.2.3
+numpy==1.26.4
+scikit-learn==1.6.1
+scipy==1.13.1
+statsmodels==0.14.6
+
+# ─── Visualización ────────────────────────────────────────────────────────────
+matplotlib==3.9.4
+seaborn==0.13.2
+plotly==6.5.2
+
+# ─── Web Mining ───────────────────────────────────────────────────────────────
+requests==2.32.3
+beautifulsoup4==4.13.3
+selenium==4.36.0
+
+# ─── Reglas de Asociación ─────────────────────────────────────────────────────
+mlxtend==0.23.4
+
+# ─── Redes Neuronales (Keras / TensorFlow) ────────────────────────────────────
+tensorflow==2.20.0
+keras==3.10.0
+
+# ─── Reducción dimensional ────────────────────────────────────────────────────
+prince==0.14.0
+
+# ─── Opcionales (el paquete corre sin ellos) ──────────────────────────────────
+# umap-learn        # pip install umap-learn
+# sklearn-extra     # pip install sklearn-extra   (KMedoids)
+# sklearn-genetic-opt  # pip install sklearn-genetic-opt
